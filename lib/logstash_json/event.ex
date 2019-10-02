@@ -119,6 +119,7 @@ defmodule LogstashJson.Event do
   end
 
   defp pre_encode(it) when is_number(it), do: it
+  defp pre_encode(it) when is_atom(it), do: Atom.to_string(it)
 
   defp pre_encode(it), do: inspect(it)
 end
